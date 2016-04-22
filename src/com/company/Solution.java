@@ -4,6 +4,21 @@ import java.util.*;
 
 public class Solution {
 
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> set = new HashSet<>();
+        int start = 0, end = 0;
+        for (int num : nums) {
+            if (set.add(num)) {
+                end++;
+            } else return true;
+            if (end - start > k) {
+                set.remove(nums[start]);
+                start++;
+            }
+        }
+        return false;
+    }
+
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {

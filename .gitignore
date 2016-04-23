@@ -1,5 +1,4 @@
 .idea
 .gradle
 leetcode.iml
-!build/reports/
 build

@@ -1,22 +1,37 @@
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
 
 public class SolutionTest {
+    private Solution s;
+
+    @Before
+    public void init() {
+        s = new Solution();
+    }
 
     @Test
     public void testContainsNearbyDuplicate() throws Exception {
-
+        int[] nums = {1, 2, 1};
+        boolean result = s.containsNearbyDuplicate(nums, 1);
+        Assert.assertFalse(result);
     }
 
     @Test
     public void testContainsDuplicate() throws Exception {
-
+        int[] nums = {1, 2, 1};
+        boolean result = s.containsDuplicate(nums);
+        Assert.assertTrue(result);
     }
 
     @Test
     public void testMoveZeroes() throws Exception {
-
+        int[] nums = {1, 0, 2, 1, 0, 9, 1};
+        int[] numsResult = {1, 2, 1, 9, 1, 0, 0};
+        s.moveZeroes(nums);
+        Assert.assertArrayEquals(nums, numsResult);
     }
 
     @Test
@@ -26,12 +41,18 @@ public class SolutionTest {
 
     @Test
     public void testPlusOne() throws Exception {
-
+        int[] nums = {9};
+        int[] result = s.plusOne(nums);
+        Assert.assertArrayEquals(result, new int[]{1, 0});
     }
 
     @Test
     public void testRemoveElement() throws Exception {
-
+        int[] nums = {3, 2, 2, 3};
+        int result = s.removeElement(nums, 3);
+        Assert.assertEquals(result, 2);
+        Assert.assertEquals(nums[0], 2);
+        Assert.assertEquals(nums[1], 2);
     }
 
     @Test

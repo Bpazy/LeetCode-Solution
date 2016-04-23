@@ -51,7 +51,6 @@ public class Solution {
             }
         }
         return result;
-
     }
 
     public int[] plusOne(int[] digits) {
@@ -65,6 +64,7 @@ public class Solution {
         if (carry != 0) {
             int[] result = new int[digits.length + 1];
             System.arraycopy(digits, 0, result, 1, digits.length);
+            result[0] = carry;
             return result;
         }
         return digits;

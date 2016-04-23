@@ -1,15 +1,14 @@
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class SolutionTest {
-    private Solution s;
+    private Solution s = new Solution();
 
-    @Before
-    public void init() {
-        s = new Solution();
+    @Test
+    public void testRotate() throws Exception {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        s.rotate(nums, 4);
+        Assert.assertArrayEquals(new int[]{4, 5, 6, 7, 1, 2, 3}, nums);
     }
 
     @Test

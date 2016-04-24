@@ -6,10 +6,11 @@ public class SolutionTest {
     private Solution s = new Solution();
 
     @Test
-    public void testReverseVowels() {
-        String str = "hello";
-        String s = this.s.reverseVowels(str);
-        System.out.println(s);
+    public void testReverseVowels() throws Exception {
+        QADataReader reader = new QADataReader("src/test/resources/reverse_vowels.data");
+        for (int i = 0; i < reader.size(); i++) {
+            Assert.assertEquals(s.reverseVowels(reader.getQuestion(i)), reader.getAnswer(i));
+        }
     }
 
     @Test

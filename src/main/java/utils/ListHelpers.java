@@ -1,11 +1,8 @@
-public class ListNode {
-    int val;
-    ListNode next;
+package utils;
 
-    ListNode(int x) {
-        val = x;
-    }
+import main.ListNode;
 
+public class ListHelpers {
     public static void addNode(ListNode list, int n) {
         ListNode first = list;
         while (first.next != null) {

@@ -1,15 +1,18 @@
+package main;
+
+import utils.ArrayHelpers;
+
 import java.util.*;
 
 public class Solution {
 
     public void rotate(int[] nums, int k) {
-        for (int i = 0; i < k; i++) {
-            int temp = nums[nums.length - 1];
-            for (int j = nums.length - 1; j > 0 ; j--) {
-                nums[j] = nums[j - 1];
-            }
-            nums[0] = temp;
-        }
+        if (nums.length <= 1)
+            return;
+        int div = nums.length - k % nums.length;
+        ArrayHelpers.reverse(nums, 0, div - 1);
+        ArrayHelpers.reverse(nums, div, nums.length - 1);
+        ArrayHelpers.reverse(nums);
     }
 
     public boolean containsNearbyDuplicate(int[] nums, int k) {

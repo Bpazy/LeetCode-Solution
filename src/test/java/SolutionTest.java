@@ -2,16 +2,21 @@ import main.Solution;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class SolutionTest {
     private Solution s = new Solution();
+
+    @Test
+    public void testReverseVowels() {
+        String str = "hello";
+        String s = this.s.reverseVowels(str);
+        System.out.println(s);
+    }
 
     @Test
     public void testRotate() throws Exception {
         int[] nums = {1, 2, 3};
         s.rotate(nums, 4);
-        System.out.println(Arrays.toString(nums));
+        Assert.assertArrayEquals(new int[]{3, 1, 2}, nums);
     }
 
     @Test

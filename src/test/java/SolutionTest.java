@@ -6,10 +6,18 @@ public class SolutionTest {
     private Solution s = new Solution();
 
     @Test
+    public void testReverseString() throws Exception {
+        QADataReader reader = new QADataReader("src/test/resources/reverse_string.data");
+        for (int i = 0; i < reader.size(); i++) {
+            Assert.assertEquals(reader.getExpectString(i), s.reverseString(reader.getRawString(i)));
+        }
+    }
+
+    @Test
     public void testReverseVowels() throws Exception {
         QADataReader reader = new QADataReader("src/test/resources/reverse_vowels.data");
         for (int i = 0; i < reader.size(); i++) {
-            Assert.assertEquals(s.reverseVowels(reader.getRaw(i)), reader.getExpect(i));
+            Assert.assertEquals(s.reverseVowels(reader.getRawString(i)), reader.getExpectString(i));
         }
     }
 

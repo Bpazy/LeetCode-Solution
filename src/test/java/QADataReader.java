@@ -36,16 +36,16 @@ public class QADataReader {
         }
     }
 
-    public String getRaw(int pos) {
+    public String getRawString(int pos) {
         if (ready)
             return data.get(pos).getRaw();
-        return "Get question error.";
+        return "Get raw data error.";
     }
 
-    public String getExpect(int pos) {
+    public String getExpectString(int pos) {
         if (ready)
             return data.get(pos).getExpect();
-        return "Get answer error";
+        return "Get expect data error";
     }
 
     public int size() {

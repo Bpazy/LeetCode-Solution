@@ -6,6 +6,20 @@ import java.util.*;
 
 public class Solution {
 
+    public String reverseString(String s) {
+        char[] str = s.toCharArray();
+        int start = 0;
+        int end = str.length - 1;
+        while (start < end) {
+            char temp = str[start];
+            str[start] = str[end];
+            str[end] = temp;
+            start++;
+            end--;
+        }
+        return new String(str);
+    }
+
     public String reverseVowels(String s) {
         char[] str = s.toCharArray();
         Set<Character> set = new HashSet<>();

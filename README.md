@@ -6,6 +6,7 @@ LeetCode解题
 
 **Example:** src/test/java/SolutionTest.java
 
+```
 @Test
 public void testReverseVowels() throws Exception {
     QADataReader reader = new QADataReader("src/test/resources/reverse_vowels.data");
@@ -13,10 +14,13 @@ public void testReverseVowels() throws Exception {
         Assert.assertEquals(s.reverseVowels(reader.getQuestion(i)), reader.getAnswer(i));
     }
 }
+```
 
 </br>
 在/src/test/resources/*.data中写数据, 原始数据和期望值之间用 | 分隔
 
 **Example:** src/test/resources/reverse_vowels.data
 
+```
 hello | holle
+```

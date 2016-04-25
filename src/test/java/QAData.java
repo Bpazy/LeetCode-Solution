@@ -1,30 +1,35 @@
 
 public class QAData {
-    private String question;
-    private String answer;
+    private String raw;
+    private String expect;
 
     public QAData() {
+        raw = expect = "Please initiate raw data and expect data";
     }
 
-    public String getQuestion() {
-        return question;
+    public QAData(String raw, String expect) {
+        this.raw = raw;
+        this.expect = expect;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public String getRaw() {
+        return raw;
     }
 
-    public String getAnswer() {
-        return answer;
+    public void setData(String raw, String expect) {
+        this.raw = raw;
+        this.expect = expect;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setRaw(String raw) {
+        this.raw = raw;
     }
 
-    public QAData(String question, String answer) {
-        this.question = question;
-        this.answer = answer;
+    public String getExpect() {
+        return expect;
+    }
 
+    public void setExpect(String expect) {
+        this.expect = expect;
     }
 }

@@ -11,7 +11,7 @@ LeetCode解题
 public void testReverseVowels() throws Exception {
     QADataReader reader = new QADataReader("src/test/resources/reverse_vowels.data");
     for (int i = 0; i < reader.size(); i++) {
-        Assert.assertEquals(s.reverseVowels(reader.getQuestion(i)), reader.getAnswer(i));
+        Assert.assertEquals(s.reverseVowels(reader.getRaw(i)), reader.getExpect(i));
     }
 }
 ```

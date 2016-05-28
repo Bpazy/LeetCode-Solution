@@ -1,9 +1,37 @@
+import main.ListNode;
 import main.Solution;
 import org.junit.Assert;
 import org.junit.Test;
+import utils.ListHelpers;
 
 public class SolutionTest {
     private Solution s = new Solution();
+
+    @Test
+    public void testOddEvenList() {
+        QADataReader reader = new QADataReader("src/test/resources/odd_even_list.data");
+        for (int i = 0; i < reader.size(); i++) {
+            ListNode raw = ListHelpers.getListFromString(reader.getRawString(i));
+            ListNode expect = ListHelpers.getListFromString(reader.getExpectString(i));
+            ListNode list = s.oddEvenList(raw);
+            while (list != null && expect != null) {
+                Assert.assertEquals(list.val, expect.val);
+                list = list.next;
+                expect = expect.next;
+            }
+        }
+    }
+
+    @Test
+    public void testAddBinary() throws Exception {
+        QADataReader reader = new QADataReader("src/test/resources/add_binary.data");
+        for (int i = 0; i < reader.size(); i++) {
+            String rawString = reader.getRawString(i);
+            String[] split = rawString.split(",");
+            Assert.assertEquals(reader.getExpectString(i), s.addBinary(split[0], split[1]));
+        }
+
+    }
 
     @Test
     public void testReverseString() throws Exception {

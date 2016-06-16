@@ -8,6 +8,40 @@ import java.util.*;
 public class Solution {
 
     /**
+     * Given a string, find the length of the longest substring without repeating characters.
+     * <p>
+     * Examples:
+     * <p>
+     * Given "abcabcbb", the answer is "abc", which the length is 3.
+     * <p>
+     * Given "bbbbb", the answer is "b", with the length of 1.
+     * <p>
+     * Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+     *
+     * @param s given string.
+     * @return length.
+     */
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0) return 0;
+        StringBuilder builder = new StringBuilder();
+        int max = 1;
+        for (int i = 0; i < s.length(); i++) {
+            int index = builder.indexOf(String.valueOf(s.charAt(i)));
+            if (index != -1) {
+                if (builder.length() > max) {
+                    max = builder.length();
+                }
+                builder.delete(0, index + 1);
+            }
+            builder.append(s.charAt(i));
+        }
+        if (builder.length() > max) {
+            max = builder.length();
+        }
+        return max;
+    }
+
+    /**
      * Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are
      * talking about the node number and not the value in the nodes.
      * <p>

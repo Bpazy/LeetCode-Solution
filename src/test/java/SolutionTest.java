@@ -8,6 +8,15 @@ public class SolutionTest {
     private Solution s = new Solution();
 
     @Test
+    public void testLengthOfLongestSubstring() throws Exception {
+        QADataReader reader = new QADataReader("src/test/resources/length_of_longest_substring.data");
+        for (int i = 0; i < reader.size(); i++) {
+            String rawString = reader.getRawString(i);
+            Assert.assertEquals(reader.getExpectString(i), Integer.toString(s.lengthOfLongestSubstring(rawString)));
+        }
+    }
+
+    @Test
     public void testOddEvenList() {
         QADataReader reader = new QADataReader("src/test/resources/odd_even_list.data");
         for (int i = 0; i < reader.size(); i++) {
